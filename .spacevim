@@ -1,0 +1,55 @@
+" You can enable the existing layers in space-vim and
+" exclude the partial plugins in a certain layer.
+" The command Layer is vaild in the function Layers().
+" Use exclude option if you don't want the full Layer,
+" e.g., Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
+function! Layers()
+
+  " Default layers, recommended!
+  Layer 'fzf'
+  Layer 'unite'
+  Layer 'better-defaults'
+
+  Layer 'python'
+  Layer 'syntax-checking'
+  Layer 'airline'
+endfunction
+
+" Put your private plugins here.
+function! UserInit()
+
+  " Space has been set as the default leader key,
+  " if you want to change it, uncomment and set it here.
+  " let g:spacevim_leader = "<\Space>"
+  " let g:spacevim_localleader = ','
+  "插入模式下直接通过ii键来触发UltiSnips的代码块补全
+  let g:UltiSnipsExpandTrigger="ii"
+  "iI弹出UltiSnips的可用列表,不常用的, 所以这里设置成了特殊的iI映射
+  let g:UltiSnipsListSnippets="iI"
+  "II跳转的到下一个代码块可编辑区
+  let g:UltiSnipsJumpForwardTrigger="II"
+  "OO跳转到上一个代码块可编辑区
+  let g:UltiSnipsJumpBackwardTrigger="OO"
+
+  " Install private plugins
+  " Plug 'extr0py/oni'
+  Plug 'iamcco/mathjax-support-for-mkdp'
+  Plug 'iamcco/markdown-preview.vim'
+  Plug 'Valloric/YouCompleteMe'
+  Plug 'SirVer/ultisnips'
+  Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+
+  let g:airline_powerline_fonts = 1
+  let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+
+endfunction
+
+" Put your costom configurations here, e.g., change the colorscheme.
+function! UserConfig()
+
+  " If you enable airline layer and have installed the powerline fonts, set it here.
+  " let g:airline_powerline_fonts=1
+  " color desert
+
+endfunction
